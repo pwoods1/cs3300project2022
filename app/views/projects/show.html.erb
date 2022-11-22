@@ -1,10 +1,23 @@
-<p style="color: green"><%= notice %></p>
 
-<%= render @project %>
+<!-- Project Information -->
+<div class="container-lg mt-5">
+  <h1 class="fw-bold "> <%= @project.title %> </h1>
 
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
+  <h5 class="mt-5 text-decoration-underline"> Description </h5>
 
-  <%= button_to "Destroy this project", @project, method: :delete %>
+  <p class="mt-3"> <%= @project.description %> </p>
+</div>
+
+<!-- Buttons -->
+<div class="container-lg mt-5">
+  
+  <div class="d-flex">
+    <a type="button" class="btn btn-secondary" href=<%= projects_path %>> Back to projects </a>
+    
+    <!-- Only show edit and delete if user is logged in -->
+    <a type="button" class="btn btn-info ms-3" href=<%= edit_project_path(@project) %>> Edit project </a>
+    <%= button_to "Delete project", @project, method: :delete, class: "btn btn-danger ms-3" %>
+    
+  </div>
+  
 </div>

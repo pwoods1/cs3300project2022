@@ -1,131 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Bootstrap 5 Website Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+<p style="color: green"><%= notice %></p>
 
-</head>
-<body class="bg-dark text-light">
+<h1>Projects</h1>
 
-<!--Navbar-->
-<div class="container-fluid bg-secondary">
-    <ul class="nav">
-        <li class="nav-item">
-            <a class="nav-link text-light" href="#">Home</a>
-        </li>
-
-        <li class="nav-item dropdown d-flex align-items-center">
-            <a class="btn text-light dropdown-toggle border-0" role="button" data-bs-toggle="dropdown">Account</a>
-
-            <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Login</a></li>
-                <li><a class="dropdown-item" href="#">Sign up</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
-
-<!--Header and Intro-->
-<div class="container-fluid text-center mt-5">
-    <h1 class="mb-3">Portfolio</h1>
-    
+<div id="projects">
+  <% @projects.each do |project| %>
+    <%= render project %>
     <p>
-    Hello! I am Patrick Woods, a Computer Science student at UCCS eager to learn about professional software engineering and it's applications.
+      <%= link_to "Show this project", project %>
     </p>
-
-    <a href="https://eas.uccs.edu/cs/academics/undergraduate-programs/bachelor-of-science-in-computer-science">Click here to see degree program</a>
+  <% end %>
 </div>
 
-<div class="container mt-5">
-
-    <h2>Skills</h2>
-    <ul class="list-group w-50">
-        <li class="list-group-item">
-            Languages
-            <ul class="mt-2">
-                <li>C/C++</li>
-                <li>Java</li>
-                <li>JavaScript</li>
-                <li>Python</li>
-                <li>Assembly</li>
-            </ul>
-        </li>
-        <li class="list-group-item">
-            Soft Skills
-            <ul class="mt-2">
-                <li>Adaptable</li>
-                <li>Strong work ethic</li>
-                <li>Problem solver</li>
-                <li>Team player</li>
-            </ul>
-        </li>
-    </ul>
-</div>
-
-<!--Project Grid-->
-<div class="container mt-5">
-
-    <h2>Projects</h2>
-
-    <!--Single row that wraps around to accommodate other projects-->
-    <div class="row">
-
-        <div class="col-sm-4 my-3">
-            <div class="card text-white bg-secondary">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title #1</h5>
-                  <p class="card-text">Quick description of the project.</p>
-                  <a href="#" class="btn btn-primary">Project Details</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 my-3">
-            <div class="card text-white bg-secondary">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title #2</h5>
-                  <p class="card-text">Quick description of the project.</p>
-                  <a href="#" class="btn btn-primary">Project Details</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 my-3">
-            <div class="card text-white bg-secondary">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title #3</h5>
-                  <p class="card-text">Quick description of the project.</p>
-                  <a href="#" class="btn btn-primary">Project Details</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 my-3">
-            <div class="card text-white bg-secondary">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title #4</h5>
-                  <p class="card-text">Quick description of the project.</p>
-                  <a href="#" class="btn btn-primary">Project Details</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-sm-4 my-3">
-            <div class="card text-white bg-secondary">
-                <div class="card-body">
-                  <h5 class="card-title">Project Title #5</h5>
-                  <p class="card-text">Quick description of the project.</p>
-                  <a href="#" class="btn btn-primary">Project Details</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-</body>
-</html>
+<%= link_to "New project", new_project_path %>
