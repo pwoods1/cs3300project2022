@@ -1,10 +1,9 @@
-<h1>Editing project</h1>
+<div class="container-lg mt-5">
+  <h1 class="mb-4">Edit project</h1>
 
-<%= render "form", project: @project %>
+  <%= render "form", project: @project %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Show this project", @project %> |
-  <%= link_to "Back to projects", projects_path %>
+  <a type="button" class="btn btn-secondary mt-5" href=<%= projects_path %>> Back to projects </a>
 </div>
