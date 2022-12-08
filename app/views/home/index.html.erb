@@ -1,34 +1,77 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CS3300 Portfolio Project</title>
+ <!--Header and Intro-->
+  <div class="container-fluid text-center mt-5">
+    <h1 class="mb-3">My Portfolio</h1>
+    
+    <p>
+    Hello! I am Patrick Woods, a Computer Science student at UCCS eager to learn about professional software engineering and it's applications.
+    </p>
 
-  </head>
-  
-  <body>
-    <div style="margin: 5% 0 0 10%;">
-    <h1>Projects</h1>   
-    <h1>CS 3300 Portfolio Project - Fall 2022</h1>
+    <a href="https://eas.uccs.edu/cs/academics/undergraduate-programs/bachelor-of-science-in-computer-science">Click here to see degree program</a>
+  </div>
 
-      <div style="padding-left: 2rem;">
-        <h4 style="color: blue"> Patrick Woods </h3>
-        
+<div class="container mt-5">
+    
+    <h2>Skills</h2>
+    
+    <hr class="w-50"/>
 
-        <!--- Explain what the block of code below this line is doing --->
+    <div class="row">
 
-        <% if user_signed_in? %>
+      <div class="col-sm-3">
+        <h4>Languages</h4>
+
+        <ul class="mt-2">
+            <li>C/C++</li>
+            <li>Java</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>Assembly</li>
+          </ul>
+      </div>
+
+      <div class="col-sm-3">
+        <h4>Soft Skills</h4>
+
+        <ul class="mt-2">
+            <li>Adaptable</li>
+            <li>Strong work ethic</li>
+            <li>Problem solver</li>
+            <li>Team player</li>
+          </ul>
+      </div>
+
+
+    </div>
+</div>
+
+<!--Project Grid-->
+<div class="container mt-5">
+
+    <div class="d-flex align-items-center">
+      <h2>Projects</h2>
+      
+      <% if user_signed_in? %>
+        <%= link_to "New project", new_project_path, class: "btn btn-primary ms-4" %>
+      <% end %>
+    </div>
+
+    <!--Single row that wraps around to accommodate other projects-->
+    <div class="row">
+
+        <% @projects.each do |project| %>
           
-          <div> Welcome <%= current_user.email %> </div>
-          <%= button_to "Sign out", destroy_user_session_path, method: :delete %> 
-        
-        <% else %>
-          <a href="/users/sign_in"> Sign in</a>
+          <div class="col-sm-4 my-3">
+            <div class="card text-white bg-secondary">
+                <div class="card-body">
+                  <h5 class="card-title"><%= project.title %></h5>
+                  <p class="card-text"><%= project.description %></p>
+                  <%= link_to "Show this project", project, class: "btn btn-primary" %>
+                </div>
+            </div>
+          </div>
+
         <% end %>
 
-      </div>
     </div>
-  </body>
-</html>
+
+</div>
