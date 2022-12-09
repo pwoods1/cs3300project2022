@@ -1,6 +1,13 @@
 class ProjectsController < ApplicationController
-  before_action :set_project, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, only: [:create, :destroy, :new, :edit, :update]
+  before_action :set_project, only: %i[ show edit update destroy ] 
+  before_action :my_authentication, only: [:create, :destroy, :new, :edit, :update]
+
+  def my_authentication
+    if !(user_signed_in? && current_user.isAdmin)
+      redirect_to root_path, notice: "Only the student can change/create/delete projects!"
+    end
+  end
+
 
   # GET /projects or /projects.json
   def index

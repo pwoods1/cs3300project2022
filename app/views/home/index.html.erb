@@ -50,7 +50,7 @@
     <div class="d-flex align-items-center">
       <h2>Projects</h2>
       
-      <% if user_signed_in? %>
+      <% if user_signed_in? && current_user.isAdmin? %>
         <%= link_to "New project", new_project_path, class: "btn btn-primary ms-4" %>
       <% end %>
     </div>

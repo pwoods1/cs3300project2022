@@ -15,7 +15,7 @@
     <a type="button" class="btn btn-secondary" href=<%= root_path %>> Back to projects </a>
     
     <!-- Only show edit and delete if user is logged in -->
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user.isAdmin? %>
         <a type="button" class="btn btn-info ms-3" href=<%= edit_project_path(@project) %>> Edit project </a>
         <%= button_to "Delete project", @project, method: :delete, class: "btn btn-danger ms-3" %>
     <% end %>

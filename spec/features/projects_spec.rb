@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature "Projects", type: :feature do
   context "Create new project" do
     before (:each) do
+      sign_in user
       visit new_project_path
       within("form") do
         fill_in "Title", with: "Test title"
@@ -24,6 +25,7 @@ RSpec.feature "Projects", type: :feature do
   context "Update project" do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
     before(:each) do
+      sign_in user
       visit edit_project_path(project)
     end
 
