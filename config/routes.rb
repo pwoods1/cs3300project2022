@@ -3,9 +3,7 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  # Disable /projects route as home page already handles the list of projects
-  resources :projects, :except => :index
-
+  resources :projects
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
