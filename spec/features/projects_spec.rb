@@ -4,7 +4,7 @@ RSpec.feature "Projects", type: :feature do
   context "Create new project" do
 
     before (:each) do
-      user = User.create!(:email => 'test@example.com', :password => 'thisIsATest', :isAdmin => true)
+      user = User.create!(:email => 'test@test.com', :password => 'thisIsATest', :isAdmin => true)
       login_as(user, :scope => :user)
 
       visit new_project_path
@@ -29,7 +29,7 @@ RSpec.feature "Projects", type: :feature do
     let(:project) { Project.create(title: "Test title", description: "Test content") }
 
     before(:each) do
-      user = User.create!(:email => 'test@example.com', :password => 'thisIsATest', :isAdmin => true)
+      user = User.create!(:email => 'test@test.com', :password => 'thisIsATest', :isAdmin => true)
       login_as(user, :scope => :user)
 
       visit edit_project_path(project)
